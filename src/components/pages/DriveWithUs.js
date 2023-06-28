@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import workapi from "./API/workApi.js";
+import workapi from "../API/workApi.js";
 
 const HowItWorks = () => {
   const [workData, setWorkData] = useState(workapi);

@@ -31,13 +31,8 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link navbar-light" to="/service">
-                    Services
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link navbar-light" to="/about">
-                    About
+                  <Link className="nav-link navbar-light" to="/howto">
+                    How To?
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -48,10 +43,7 @@ const Navbar = () => {
               </ul>
               <form className="d-flex">
                 <button className="btn  btn-style" type="submit">
-                  Sign Up
-                </button>
-                <button className="btn  btn-style btn-style-border" type="submit">
-                  Log in
+                  Log In/Sign Up
                 </button>
               </form>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import serviceapi from "./API/serviceApi.js";
+import serviceapi from "../API/serviceApi.js";
 
 const Services = () => {
   const [serviceData, setServiceData] = useState(serviceapi);
