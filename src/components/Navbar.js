@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
-
+  const { loginWithRedirect, user, isAuthenticated, logout} = useAuth0();
   return (
     <>
       <section classNameName="navbar-bg">
@@ -41,11 +42,25 @@ const Navbar = () => {
                   </Link>
                 </li>
               </ul>
-              <form className="d-flex">
-                <button className="btn  btn-style" type="submit">
-                  Log In/Sign Up
+              {isAuthenticated && (
+                <Link className="nav-link navbar-light" to="/dashboard">
+                  Dashboard
+                </Link>
+              )}
+              {isAuthenticated ? (
+                <li>
+                <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                  Log Out
                 </button>
-              </form>
+                </li>
+                ):(
+                  <li>
+                  <button onClick = {() => loginWithRedirect()}>
+                    Log In
+                  </button>
+                  </li>
+              )}
+               
             </div>
           </div>
         </nav>
