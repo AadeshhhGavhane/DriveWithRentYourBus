@@ -5,6 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const { loginWithRedirect, user, isAuthenticated, logout} = useAuth0();
+
   return (
     <>
       <section classNameName="navbar-bg">
@@ -41,26 +42,29 @@ const Navbar = () => {
                     Contact
                   </Link>
                 </li>
+                {isAuthenticated && (
+                  <li className="nav-item">
+                  <Link className="nav-link navbar-light" to="/dashboard">
+                    Dashboard
+                  </Link>
+                </li>
+                )}
               </ul>
-              {isAuthenticated && (
-                <Link className="nav-link navbar-light" to="/dashboard">
-                  Dashboard
-                </Link>
-              )}
-              {isAuthenticated ? (
-                <li>
-                <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+              {isAuthenticated ? (<form className="d-flex">
+                <button 
+                onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
+                className="btn  btn-style" type="submit"
+                >
                   Log Out
                 </button>
-                </li>
-                ):(
-                  <li>
-                  <button onClick = {() => loginWithRedirect()}>
-                    Log In
-                  </button>
-                  </li>
-              )}
-               
+              </form>) : (<form className="d-flex">
+                <button 
+                onClick={() => loginWithRedirect()}
+                className="btn  btn-style" type="submit">
+                  Log In/Sign Up
+                </button>
+              </form>)}
+              
             </div>
           </div>
         </nav>
