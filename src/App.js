@@ -7,6 +7,7 @@ import SafetyOnTheRoad from "./components/pages/SafetyOnTheRoad";
 import Contact from "./components/pages/Contact";
 import Footer from "./components/Footer";
 import Dashboard from "./components/pages/Dashboard";
+import GetStarted from "./components/pages/GetStarted";
 
 function App({ children }) {
   return (
@@ -19,6 +20,7 @@ function App({ children }) {
           <Route path="/service" element={<SafetyOnTheRoad />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/getstarted" element={<GetStarted />} />
         </Routes>
         <Footer />
       </Router>

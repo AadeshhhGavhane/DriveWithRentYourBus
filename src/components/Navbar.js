@@ -32,11 +32,20 @@ const Navbar = () => {
                     Home
                   </Link>
                 </li>
-                <li className="nav-item">
+                {isAuthenticated ? (
+                  <li className="nav-item">
+                  <Link className="nav-link navbar-light" to="/getstarted">
+                    Get Started
+                  </Link>
+                </li>
+                ) : (
+                  <li className="nav-item">
                   <Link className="nav-link navbar-light" to="/howto">
                     How To?
                   </Link>
                 </li>
+                )}
+                
                 <li className="nav-item">
                   <Link className="nav-link navbar-light" to="/contact">
                     Contact
